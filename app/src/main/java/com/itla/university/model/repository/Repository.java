@@ -4,7 +4,7 @@ import com.itla.university.model.entity.Entity;
 
 import java.util.List;
 
-public interface repository<T extends Entity> {
+public interface Repository<T extends Entity> {
 
     void create(T entity);
 

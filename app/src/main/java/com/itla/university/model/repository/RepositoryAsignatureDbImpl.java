@@ -5,7 +5,7 @@ import com.itla.university.model.entity.Asignature;
 import java.util.List;
 
 
-public class RepositoryAsignatureDbImpl implements repository<Asignature> {
+public class RepositoryAsignatureDbImpl implements Repository<Asignature> {
 
     @Override
     public void create(Asignature asignature) {

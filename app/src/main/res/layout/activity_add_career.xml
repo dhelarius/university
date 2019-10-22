@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/ic_university" />
 
     <EditText
-        android:id="@+id/career"
+        android:id="@+id/editTextCareer"
         style="@style/StyleEditText"
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height_48dp"
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/saveCareer"
         style="@style/GradientButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
         android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/career" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCareer" />
 
     <Button
         android:id="@+id/cancel"
@@ -60,6 +60,6 @@
         android:text="@string/cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/save" />
+        app:layout_constraintTop_toBottomOf="@+id/saveCareer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

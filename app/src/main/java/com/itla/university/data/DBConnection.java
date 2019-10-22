@@ -27,8 +27,7 @@ public class DBConnection extends SQLiteOpenHelper {
     }
 
     private String getStringCreateTableCareer(){
-        return "CREATE TABLE \"carrera\" (\n" +
-                "\t\"id\"\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
+        return "CREATE TABLE \"carrera\" (\"id\"\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
                 "\t\"nombre\"\tTEXT NOT NULL\n" +
                 ");";
     }

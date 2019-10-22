@@ -4,7 +4,7 @@ import com.itla.university.model.entity.Student;
 
 import java.util.List;
 
-public class RepositoryStudentDbImpl implements repository<Student> {
+public class RepositoryStudentDbImpl implements Repository<Student> {
     @Override
     public void create(Student student) {
 

@@ -6,6 +6,8 @@ public class Career extends Entity{
 
     private Integer id;
     private String name;
+    private Integer asignatures;
+    private Integer credits;
 
     public Career() {
         super(DESCRIPTION);
@@ -25,5 +27,21 @@ public class Career extends Entity{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getAsignatures() {
+        return asignatures;
+    }
+
+    public void setAsignatures(Integer asignatures) {
+        this.asignatures = asignatures;
+    }
+
+    public Integer getCredits() {
+        return credits;
+    }
+
+    public void setCredits(Integer credits) {
+        this.credits = credits;
     }
 }

@@ -1,13 +1,23 @@
 package com.itla.university.model.repository;
 
+import android.content.Context;
+
+import com.itla.university.data.dao.CareerDao;
 import com.itla.university.model.entity.Career;
 
 import java.util.List;
 
-public class RepositoryCareerDbImpl implements repository<Career> {
+public class RepositoryCareerDbImpl implements Repository<Career> {
+
+    private CareerDao careerDao;
+
+    public RepositoryCareerDbImpl(Context context){
+        careerDao = new CareerDao(context);
+    }
+
     @Override
     public void create(Career career) {
-
+        careerDao.create(career);
     }
 
     @Override
@@ -27,6 +37,6 @@ public class RepositoryCareerDbImpl implements repository<Career> {
 
     @Override
     public List<Career> findAll() {
-        return null;
+        return careerDao.findAll();
     }
 }
