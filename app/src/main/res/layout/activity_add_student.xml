@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddStudentActivity" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/saveStudent"
+            style="@style/GradientButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCareers" />
+
+        <Button
+            android:id="@+id/cancel"
+            style="@style/Widget.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_height_56dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/saveStudent" />
+
+        <EditText
+            android:id="@+id/studentName"
+            style="@style/StyleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_height_48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="@string/hint_name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:text="Darío Jiménez Ayala" />
+
+        <EditText
+            android:id="@+id/studentRegistration"
+            style="@style/StyleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_height_48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="@string/hint_registration"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/studentName"
+            tools:text="DC-190001" />
+
+
+        <ImageButton
+            android:id="@+id/goToListCareer"
+            android:layout_width="@dimen/layout_height_48dp"
+            android:layout_height="@dimen/layout_height_48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_button"
+            android:src="@drawable/ic_add_white"
+            android:stateListAnimator="@anim/fab_raise"
+            app:layout_constraintEnd_toEndOf="@+id/studentRegistration"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/spinnerCareers"
+            app:layout_constraintTop_toBottomOf="@+id/studentRegistration" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/layout_height_48dp"
+            android:layout_height="@dimen/layout_height_48dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_student" />
+
+        <Spinner
+            android:id="@+id/spinnerCareers"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/layout_height_48dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/goToListCareer"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/studentRegistration"
+            app:layout_constraintTop_toBottomOf="@+id/studentRegistration" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

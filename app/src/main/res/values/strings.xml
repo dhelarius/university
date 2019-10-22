@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">University</string>
+    <string name="label_add_student_activity">Nuevo Estudiante</string>
+    <string name="label_college_careers_activity">Carreras</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_registration">Matricula</string>
+    <string name="save">GUARDAR</string>
+    <string name="cancel">CANCELAR</string>
+    <string name="label_add_career_activity">Nueva Carrera</string>
+    <string name="hint_career">Carrera</string>
+</resources>
