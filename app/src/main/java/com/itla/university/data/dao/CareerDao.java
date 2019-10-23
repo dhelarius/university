@@ -5,11 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-
 import com.itla.university.data.AddException;
 import com.itla.university.data.DBConnection;
+import com.itla.university.data.Database;
 import com.itla.university.model.entity.Career;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +21,7 @@ public class CareerDao implements Dao<Career>{
 
     private DBConnection dbConnection;
 
-    public CareerDao(Context context){
-        this.dbConnection = new DBConnection(context);
-    }
+    public CareerDao(Context context){ this.dbConnection = Database.getInstance(context);}
 
     @Override
     public void create(Career career) {

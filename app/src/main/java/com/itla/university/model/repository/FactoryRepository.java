@@ -1,7 +1,6 @@
 package com.itla.university.model.repository;
 
 import android.content.Context;
-
 import com.itla.university.model.repository.type.RepositoryType;
 
 public class FactoryRepository {
@@ -11,7 +10,7 @@ public class FactoryRepository {
         switch (type){
             case CAREER: return new RepositoryCareerDbImpl(context);
             case ASIGNATURE: return new RepositoryAsignatureDbImpl();
-            case STUDENT: return new RepositoryStudentDbImpl();
+            case STUDENT: return new RepositoryStudentDbImpl(context);
             default: return null;
         }
     }

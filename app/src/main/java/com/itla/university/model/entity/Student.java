@@ -7,7 +7,8 @@ public class Student extends Entity{
     private Integer id;
     private String name;
     private String registration;
-    private Integer career_id;
+    private Integer careerId;
+    private String careerName;
 
     public Student() {
         super(DESCRIPTION);
@@ -17,9 +18,7 @@ public class Student extends Entity{
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Integer id) { this.id = id; }
 
     public String getName() {
         return name;
@@ -35,5 +34,21 @@ public class Student extends Entity{
 
     public void setRegistration(String registration) {
         this.registration = registration;
+    }
+
+    public Integer getCareerId() {
+        return careerId;
+    }
+
+    public void setCareerId(Integer careerId) {
+        this.careerId = careerId;
+    }
+
+    public String getCareerName() {
+        return careerName;
+    }
+
+    public void setCareerName(String careerName) {
+        this.careerName = careerName;
     }
 }

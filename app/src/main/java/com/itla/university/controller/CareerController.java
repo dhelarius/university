@@ -4,7 +4,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.itla.university.R;
 import com.itla.university.model.entity.Career;
@@ -33,7 +32,6 @@ public class CareerController implements Controller {
 
         career.setName(editTextCareer.getText().toString());
         repository.create(career);
-
         editTextCareer.setText("");
 
         return true;
@@ -46,7 +44,6 @@ public class CareerController implements Controller {
 
     public void printAllCareers(){
         List<Career> careers = repository.findAll();
-
         for(Career career : careers){
             Log.i(TAG, career.getName());
         }
