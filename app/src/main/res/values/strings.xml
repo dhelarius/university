@@ -8,4 +8,6 @@
     <string name="cancel">CANCELAR</string>
     <string name="label_add_career_activity">Nueva Carrera</string>
     <string name="hint_career">Carrera</string>
+    <string name="label_asignatures">materias,</string>
+    <string name="label_credits">créditos</string>
 </resources>

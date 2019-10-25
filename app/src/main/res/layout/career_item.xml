@@ -23,15 +23,33 @@
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
             android:paddingEnd="4dp"
-            tools:text="20 materias, "
+            tools:text="20"
             style="@style/TextSubtitleItem" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_asignatures"
+            style="@style/TextSubtitleItem"
+            tools:text="materias,"
+            />
 
         <TextView
             android:id="@+id/textNumCredits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="4dp"
             style="@style/TextSubtitleItem"
-            tools:text="172 créditos" />
+            tools:text="172" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_credits"
+            style="@style/TextSubtitleItem"
+            tools:text="créditos"
+            />
 
     </LinearLayout>
 
