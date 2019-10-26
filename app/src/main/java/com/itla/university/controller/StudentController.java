@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
 import com.google.android.material.snackbar.Snackbar;
 import com.itla.university.R;
 import com.itla.university.model.entity.Career;
@@ -23,13 +24,16 @@ public class StudentController implements Controller {
     private Context context;
     private Repository<Student> studentRepository;
     private Repository<Career> careerRepository;
-    private ViewGroup viewGroup;
     private String careerNameItem;
+
+    private EditText studentName;
+    private EditText studentRegistration;
 
     public StudentController(Context context, Repository<Student> studentRepository, ViewGroup viewGroup){
         this.context = context;
         this.studentRepository = studentRepository;
-        this.viewGroup = viewGroup;
+        studentName = viewGroup.findViewById(R.id.studentName);
+        studentRegistration = viewGroup.findViewById(R.id.studentRegistration);
         careerRepository = FactoryRepository.getRepository(context, RepositoryType.CAREER);
     }
 
@@ -37,11 +41,12 @@ public class StudentController implements Controller {
         this.careerNameItem = careerNameItem;
     }
 
-    public Boolean saveStudentIntoDatabase(){
-        EditText studentName = viewGroup.findViewById(R.id.studentName);
-        EditText studentRegistration = viewGroup.findViewById(R.id.studentRegistration);
+    public Boolean canSaveStudent(){
+        return !studentName.getText().toString().isEmpty() && !studentRegistration.getText().toString().isEmpty();
+    }
 
-        if(studentName.getText().toString().isEmpty() || studentRegistration.getText().toString().isEmpty())
+    public Boolean saveStudentIntoDatabase(){
+        if(!canSaveStudent())
             return false;
 
         String name = studentName.getText().toString();

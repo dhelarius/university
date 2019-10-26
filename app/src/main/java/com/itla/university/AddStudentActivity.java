@@ -1,6 +1,8 @@
 package com.itla.university;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +20,9 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
 
     private static final String TAG = AddStudentActivity.class.getSimpleName();
 
-    private StudentController studentController;
+    private StudentController controller;
+
+    private View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,21 +31,22 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
 
         ViewGroup viewGroup = findViewById(R.id.viewGroupAddStudentActivity);
 
-        studentController = new StudentController(this, new RepositoryStudentDbImpl(this), viewGroup);
+        controller = new StudentController(this, new RepositoryStudentDbImpl(this), viewGroup);
 
         Button saveStudent = findViewById(R.id.saveStudent);
         Button cancel = findViewById(R.id.cancel);
         Spinner spinnerCareers = findViewById(R.id.spinnerCareers);
         ImageButton goToListCareers = findViewById(R.id.goToListCareers);
 
-        studentController.populateSpinnerWithCareerNames(spinnerCareers);
+        controller.populateSpinnerWithCareerNames(spinnerCareers);
         spinnerCareers.setOnItemSelectedListener(this);
 
         saveStudent.setOnClickListener(v -> {
-            if(saveStudentIntoDatabase()){
-                studentController.updateView(v);
+            view = v;
+            if(controller.canSaveStudent()){
+                showDialogToSaveStudent();
             }else{
-                Snackbar.make( v, "No se ha podido crear el estudiante", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(view, "No se ha podido crear el estudiante", Snackbar.LENGTH_SHORT).show();
             }
         });
 
@@ -52,11 +57,33 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
         cancel.setOnClickListener(v -> {
             navigateToStudentActivity();
         });
+    }
 
+    private void showDialogToSaveStudent(){
+        AlertDialog alertDialog = createDialogToSaveStudent();
+        alertDialog.show();
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
+        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
+    }
+
+    private AlertDialog createDialogToSaveStudent(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Guardar estudiante?");
+        builder.setPositiveButton("ACEPTAR", (dialog, which) -> {
+            if(saveStudentIntoDatabase()){
+                controller.updateView(view);
+            }
+        });
+        builder.setNegativeButton("CANCELAR", (dialog, which) -> {
+            dialog.dismiss();
+        });
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        return dialog;
     }
 
     private Boolean saveStudentIntoDatabase() {
-        return studentController.saveStudentIntoDatabase();
+        return controller.saveStudentIntoDatabase();
     }
 
     private void navigateToCollegeCareersActivity() {
@@ -71,7 +98,7 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String careerNameItem = parent.getSelectedItem().toString();
-        studentController.setCareerNameItem(careerNameItem);
+        controller.setCareerNameItem(careerNameItem);
         Log.i(TAG, careerNameItem);
     }
 

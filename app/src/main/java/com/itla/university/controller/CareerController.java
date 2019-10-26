@@ -16,18 +16,20 @@ public class CareerController implements Controller {
     private static final String TAG = CareerController.class.getSimpleName();
 
     private Repository<Career> repository;
-    private ViewGroup viewGroup;
+    private EditText editTextCareer;
 
     public CareerController(Repository<Career> repository, ViewGroup viewGroup) {
         this.repository = repository;
-        this.viewGroup = viewGroup;
+        editTextCareer = viewGroup.findViewById(R.id.editTextCareer);
+    }
+
+    public Boolean canSaveCareer(){
+        return !editTextCareer.getText().toString().isEmpty() && !editTextCareer.getText().toString().equals("");
     }
 
     public Boolean saveCareerIntoDatabase(){
         Career career = new Career();
-        EditText editTextCareer = viewGroup.findViewById(R.id.editTextCareer);
-
-        if(editTextCareer.getText().toString().isEmpty() || editTextCareer.getText().toString().equals(""))
+        if(!canSaveCareer())
             return false;
 
         career.setName(editTextCareer.getText().toString());
