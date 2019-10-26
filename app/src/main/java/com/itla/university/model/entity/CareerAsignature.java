@@ -1,6 +1,6 @@
 package com.itla.university.model.entity;
 
-public class CareerAsignature {
+public class CareerAsignature{
 
     private Integer career_id;
     private Integer asignature_id;

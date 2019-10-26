@@ -41,7 +41,7 @@ public class CareerDao implements Dao<Career>{
             Log.i(TAG, ae.getMessage());
         }finally {
             if(id > 0)
-            Log.i(TAG, "La carrera se ha creado exitosamente: " + id);
+                Log.i(TAG, "La carrera se ha creado exitosamente: " + id);
         }
     }
 
@@ -65,21 +65,18 @@ public class CareerDao implements Dao<Career>{
 
         List<Career> careers = new ArrayList<>();
 
-        /*Cursor cursor = dbConnection.getReadableDatabase()
+        Cursor cursor = dbConnection.getReadableDatabase()
                 .rawQuery("SELECT c.*, count(m.nombre) as materias, sum(m.creditos) as creditos FROM carrera c \n" +
                         "INNER JOIN carrera_materia cm ON c.id = cm.carrera_id\n" +
                         "INNER JOIN materia m ON cm.materia_id = m.id\n" +
-                        "GROUP BY c.id", null);*/
-
-        Cursor cursor = dbConnection.getReadableDatabase()
-                .rawQuery("SELECT * FROM " + TABLE, null);
+                        "GROUP BY c.id", null);
 
         while (cursor.moveToNext()){
             Career career = new Career();
             career.setId(cursor.getInt(cursor.getColumnIndex("id")));
-            career.setName(cursor.getString(cursor.getColumnIndex("nombre")));
-            //career.setAsignatures(cursor.getInt(cursor.getColumnIndex("materias")));
-            //career.setCredits(cursor.getInt(cursor.getColumnIndex("creditos")));
+            career.setName(cursor.getString(cursor.getColumnIndex(KEY_NAME)));
+            career.setAsignatures(cursor.getInt(cursor.getColumnIndex("materias")));
+            career.setCredits(cursor.getInt(cursor.getColumnIndex("creditos")));
             careers.add(career);
         }
 

@@ -33,8 +33,8 @@ public class CareersAdapter extends RecyclerView.Adapter<CareersAdapter.ViewHold
 
         static void bind(@NonNull ViewHolder holder, Career item) {
             holder.textCareerName.setText(item.getName());
-            holder.textNumAsignatures.setText("0");
-            holder.textNumCredits.setText("0");
+            holder.textNumAsignatures.setText(String.valueOf(item.getAsignatures()));
+            holder.textNumCredits.setText(String.valueOf(item.getCredits()));
         }
     }
 
