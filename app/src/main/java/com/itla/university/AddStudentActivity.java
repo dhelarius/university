@@ -62,12 +62,10 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
     private void showDialogToSaveStudent(){
         AlertDialog alertDialog = createDialogToSaveStudent();
         alertDialog.show();
-        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
-        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
     }
 
     private AlertDialog createDialogToSaveStudent(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
         builder.setMessage("Guardar estudiante?");
         builder.setPositiveButton("ACEPTAR", (dialog, which) -> {
             if(saveStudentIntoDatabase()){
