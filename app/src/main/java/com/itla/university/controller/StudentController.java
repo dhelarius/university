@@ -59,6 +59,8 @@ public class StudentController implements Controller {
         student.setCareerId(careerId);
 
         studentRepository.create(student);
+        studentName.setText("");
+        studentRegistration.setText("");
 
         return true;
     }

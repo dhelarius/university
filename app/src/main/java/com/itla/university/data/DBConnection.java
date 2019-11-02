@@ -45,14 +45,17 @@ public class DBConnection extends SQLiteOpenHelper {
                 "\t\"id\"\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
                 "\t\"nombre\"\tTEXT NOT NULL,\n" +
                 "\t\"matricula\"\tTEXT NOT NULL,\n" +
-                "\t\"carrera_id\"\tINTEGER NOT NULL\n" +
+                "\t\"carrera_id\"\tINTEGER NOT NULL,\n" +
+                "\tFOREIGN KEY(\"carrera_id\") REFERENCES \"carrera\"(\"id\") ON DELETE CASCADE ON UPDATE CASCADE\n" +
                 ");";
     }
 
     private String getStringCreateTableCareerAsignature(){
         return "CREATE TABLE \"carrera_materia\" (\n" +
                 "\t\"carrera_id\"\tINTEGER NOT NULL,\n" +
-                "\t\"materia_id\"\tINTEGER NOT NULL\n" +
+                "\t\"materia_id\"\tINTEGER NOT NULL,\n" +
+                "\tFOREIGN KEY(\"carrera_id\") REFERENCES \"carrera\"(\"id\") ON DELETE SET NULL,\n" +
+                "\tFOREIGN KEY(\"materia_id\") REFERENCES \"materia\"(\"id\") ON DELETE SET NULL\n" +
                 ");";
     }
 }
